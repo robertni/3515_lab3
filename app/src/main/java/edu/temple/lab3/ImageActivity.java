@@ -8,8 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class ImageActivity extends AppCompatActivity {
 
@@ -17,6 +20,7 @@ public class ImageActivity extends AppCompatActivity {
     ImageView imageView;
     TextView textView;
     int[] dogImages;
+    boolean first = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,6 @@ public class ImageActivity extends AppCompatActivity {
         // reference views
         spinner = findViewById(R.id.spinner);
         imageView = findViewById(R.id.imageView);
-        textView = findViewById(R.id.textView);
 
         // create array list of dogs
         ArrayList dogArray = new ArrayList<String>();
@@ -39,13 +42,18 @@ public class ImageActivity extends AppCompatActivity {
         dogImages = new int[]{R.drawable.dog1, R.drawable.dog2, R.drawable.dog3, R.drawable.dog4};
 
         // custom adapter
-        ImageAdapter adapter = new ImageAdapter(this, dogArray);
+        ImageAdapter adapter = new ImageAdapter(this, dogArray, dogImages);
         spinner.setAdapter(adapter); // set the adapter of spinner
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                showPicture(position);
+                if (!first) {
+                    Toast.makeText(ImageActivity.this, "Nice, you selected a dog!", LENGTH_SHORT).show();
+                    showPicture(position);
+                }
+
+                first = false;
             }
 
             @Override
