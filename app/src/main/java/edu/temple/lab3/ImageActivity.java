@@ -16,6 +16,7 @@ public class ImageActivity extends AppCompatActivity {
     Spinner spinner;
     ImageView imageView;
     TextView textView;
+    int[] dogImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,13 @@ public class ImageActivity extends AppCompatActivity {
 
         // create array list of dogs
         ArrayList dogArray = new ArrayList<String>();
-        dogArray.add("dog1");
-        dogArray.add("dog2");
-        dogArray.add("dog3");
-        dogArray.add("dog4");
+        dogArray.add("Happy Dog");
+        dogArray.add("Masked Dog");
+        dogArray.add("Many Dogs");
+        dogArray.add("Doge");
 
-        // TODO images for dogs
+        // images for dogs
+        dogImages = new int[]{R.drawable.dog1, R.drawable.dog2, R.drawable.dog3, R.drawable.dog4};
 
         // custom adapter
         ImageAdapter adapter = new ImageAdapter(this, dogArray);
@@ -43,7 +45,7 @@ public class ImageActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                showPicture(position);
             }
 
             @Override
@@ -51,5 +53,9 @@ public class ImageActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showPicture(int position) {
+        imageView.setImageResource(dogImages[position]);
     }
 }
