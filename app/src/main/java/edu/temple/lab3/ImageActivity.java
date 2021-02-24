@@ -35,7 +35,10 @@ public class ImageActivity extends AppCompatActivity {
         dogArray.add("dog4");
 
         // TODO images for dogs
-        // TODO custom adapter
+
+        // custom adapter
+        ImageAdapter adapter = new ImageAdapter(this, dogArray);
+        spinner.setAdapter(adapter); // set the adapter of spinner
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
