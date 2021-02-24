@@ -10,5 +10,5 @@ option; we used a setText in the beginning to change it.
 
 ## References
 I used these to help solve some of my issues
-[How to customize spinner](https://stackoverflow.com/questions/23990046/how-to-customize-the-spinner-dropdown-view)
-[LayoutInflater](https://stackoverflow.com/questions/7803771/call-to-getlayoutinflater-in-places-not-in-activity)
+- [How to customize spinner](https://stackoverflow.com/questions/23990046/how-to-customize-the-spinner-dropdown-view)
+- [LayoutInflater](https://stackoverflow.com/questions/7803771/call-to-getlayoutinflater-in-places-not-in-activity)
